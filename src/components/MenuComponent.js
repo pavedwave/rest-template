@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Media } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class Menu extends Component {
 
@@ -7,33 +7,57 @@ class Menu extends Component {
         super(props);
 
         this.state = {
-        };
+            selectedItem: null
+        }
+    }
+
+    onItemSelect(item) {
+        this.setState({ selectedItem: item });
+    }
+
+    renderItem(item) {
+        if (item != null) {
+            return(
+                <Card>
+                    <CardImg top src={item.image} alt={item.name} />
+                    <CardBody>
+                        <CardTitle>(item.name)</CardTitle>
+                        <CardText>{item.description}</CardText>
+                    </CardBody>
+                </Card>
+            );
+        }
+        else {
+            return(
+                <div></div>
+            );
+        }
     }
 
     render() {
-
         const menu = this.props.items.map((item) => {
             return (
-                <div key = {item.id} className="col-12 mt-5">
-                    <Media tag="li">
-                        <Media left middle>
-                            <Media object src={item.image} alt={item.name} />
-                        </Media>
-                        <Media body classname="ml-5">
-                            <Media heading>{item.name}</Media>
-                            <p>{item.description}</p>
-                        </Media>
-                    </Media>
+                <div className="col-12 col-md-5 m-1">
+                    <Card key = {item.id} 
+                    onClick={() => this.onItemSelect(item)}>
+                        <CardImg width="100%" src={item.image} alt={item.name} />
+                        <CardImgOverlay>
+                            <CardTitle>{item.name}</CardTitle>
+                        </CardImgOverlay>
+                    </Card>
                 </div>
             );
         });
 
         return ( 
-            <div classname="container">
-                <div classname="row">
-                    <Media list>
-                        {menu}
-                    </Media>
+            <div className="container">
+                <div className="row">
+                    {menu}
+                </div>
+                <div className="row">
+                    <div className="col-12 col-md-5 m-1">
+                        {this.renderItem(this.state.selectedItem)}
+                    </div>
                 </div>
             </div>
         );
