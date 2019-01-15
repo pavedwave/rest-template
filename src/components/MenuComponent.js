@@ -34,14 +34,14 @@ class Menu extends Component {
                                        **  POSITION COMMENT CARD SIDE BY SIDE  **
                     <Card>
                         <CardBody>
-                            <CardTitle>Comments</CardTitle>  // HOW TO PASS ITEMS (COMMENTS) AS PROPS
+                            <CardTitle>Comments</CardTitle> 
                             <CardText>
                                 <div>
-                                {this.props.items.map((comments) => {
-                                    return (
-                                    <li>{item.comments.comment} - {item.comments.author}</li>  
-                                    );
-                                })}
+                                    {this.props.items.map((comments) => {
+                                        return (
+                                        <li key={comments.id}>{item.comments.comment} - {item.comments.author}</li>  
+                                        );
+                                    })}
                                 </div>
                             </CardText>
                         </CardBody>

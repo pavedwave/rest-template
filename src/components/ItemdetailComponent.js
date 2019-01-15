@@ -23,15 +23,12 @@ class ItemDetail extends Component {
     renderItem(item) {
         if (item != null) {
             return(
-                <div className="col-12 col-md-5 m-1">
-                    <Card>
-                        <CardImg top src={item.image} alt={item.name} />
-                        <CardBody>
-                            <CardTitle>{item.name}</CardTitle>
-                            <CardText>{item.description}</CardText>
-                        </CardBody>
-                    </Card>
-                </div>
+                <div>
+                {this.props.itemdetail.map((items) => {
+                    return(
+                        <li key={items.id}>{item.name}{item.description}</li>
+                    );
+                })}</div>
             );
         }
         else {
@@ -42,33 +39,10 @@ class ItemDetail extends Component {
     }
 
     render() {
-        const itemdetail = this.props.items.map((item) => {
-            return (
-                <div className="col-12 col-md-5 m-1">
-                    <Card key = {item.id} 
-                    onClick={() => this.onItemSelect(item)}>
-                        <CardImg width="100%" src={item.image} alt={item.name} />
-                        <CardImgOverlay>
-                            <CardTitle>{item.name}</CardTitle>
-                        </CardImgOverlay>
-                    </Card>
-                </div>
-            );
-        });
-        console.log('Itemdetail component render is invoked');
-
-        return ( 
-            <div className="container">
-                <div className="row">
-                    {itemdetail}
-                </div>
-                <div className="row">
-                    <div className="col-12 col-md-5 m-1">
-                        {this.renderItem(this.props.selectedItem)}
-                    </div>
-                </div>
-            </div>
+        return (
+            <ItemDetail details={this.props.comments} />
         );
+        console.log('Itemdetail component render is invoked');
     }
 }
 
