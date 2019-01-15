@@ -23,13 +23,30 @@ class Menu extends Component {
     renderItem(item) {
         if (item != null) {
             return(
-                <Card>
-                    <CardImg top src={item.image} alt={item.name} />
-                    <CardBody>
-                        <CardTitle>{item.name}</CardTitle>
-                        <CardText>{item.description}</CardText>
-                    </CardBody>
-                </Card>
+                <div>
+                    <Card>
+                        <CardImg top src={item.image} alt={item.name} />
+                        <CardBody>
+                            <CardTitle>{item.name}</CardTitle>
+                            <CardText>{item.description}</CardText>  
+                        </CardBody>
+                    </Card>
+                                       **  POSITION COMMENT CARD SIDE BY SIDE  **
+                    <Card>
+                        <CardBody>
+                            <CardTitle>Comments</CardTitle>  // HOW TO PASS ITEMS (COMMENTS) AS PROPS
+                            <CardText>
+                                <div>
+                                {this.props.items.map((comments) => {
+                                    return (
+                                    <li>{item.comments.comment} - {item.comments.author}</li>  
+                                    );
+                                })}
+                                </div>
+                            </CardText>
+                        </CardBody>
+                    </Card>
+                </div>
             );
         }
         else {

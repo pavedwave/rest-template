@@ -24,13 +24,13 @@ class ItemDetail extends Component {
         if (item != null) {
             return(
                 <div className="col-12 col-md-5 m-1">
-                <Card>
-                    <CardImg top src={item.image} alt={item.name} />
-                    <CardBody>
-                        <CardTitle>{item.name}</CardTitle>
-                        <CardText>{item.description}</CardText>
-                    </CardBody>
-                </Card>
+                    <Card>
+                        <CardImg top src={item.image} alt={item.name} />
+                        <CardBody>
+                            <CardTitle>{item.name}</CardTitle>
+                            <CardText>{item.description}</CardText>
+                        </CardBody>
+                    </Card>
                 </div>
             );
         }
@@ -42,7 +42,7 @@ class ItemDetail extends Component {
     }
 
     render() {
-        const menu = this.props.items.map((item) => {
+        const itemdetail = this.props.items.map((item) => {
             return (
                 <div className="col-12 col-md-5 m-1">
                     <Card key = {item.id} 
@@ -60,11 +60,11 @@ class ItemDetail extends Component {
         return ( 
             <div className="container">
                 <div className="row">
-                    {menu}
+                    {itemdetail}
                 </div>
                 <div className="row">
                     <div className="col-12 col-md-5 m-1">
-                        {this.renderItem(this.state.selectedItem)}
+                        {this.renderItem(this.props.selectedItem)}
                     </div>
                 </div>
             </div>
