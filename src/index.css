@@ -15,7 +15,8 @@ code {
 }
 
 .card-title {
-  color: rgb(231, 241, 241);
+  color: antiquewhite;
+  background-color: slategray;
 }
 
 .navbar-brand {

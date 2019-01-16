@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';   
 
 class ItemDetail extends Component {
 
@@ -21,15 +21,49 @@ class ItemDetail extends Component {
     }
 
     renderItem(item) {
+        console.log('Itemdetail renderItem is invoked');
         if (item != null) {
-            return(
+            return (
                 <div>
-                {this.props.itemdetail.map((items) => {
-                    return(
-                        <li key={items.id}>{item.name}{item.description}</li>
-                    );
-                })}</div>
+                    <Card>
+                        <CardImg top src={item.image} alt={item.name} />
+                        <CardBody>
+                            <CardTitle>{item.name}</CardTitle>
+                            <CardText>{item.description}</CardText>  
+                        </CardBody>
+                    </Card>
+                </div>
+            )
+        }
+        else {
+            return(
+                <div></div>
             );
+        }
+    }
+
+    renderComment(item) {
+        console.log('Itemdetail renderComment is invoked');
+        if (item != null) {
+            return (
+                <div className="col-12 col-mt-5">
+                    <Card>
+                        <CardBody>
+                            <CardTitle>Comments</CardTitle>
+                            <CardText>
+                                <ul>
+                                    {this.props.items.map((comments) => {  
+                                        return (                  
+                                        <li key={comments.id}><p>{item.comments.comment}</p>--{item.comments.author}
+                                            {item.comments.date}</li> 
+                                        );
+                                    })};
+                                </ul>
+                            </CardText>
+                        </CardBody>
+                    </Card>
+                </div>
+            )
         }
         else {
             return(
@@ -39,10 +73,13 @@ class ItemDetail extends Component {
     }
 
     render() {
-        return (
-            <ItemDetail details={this.props.comments} />
-        );
         console.log('Itemdetail component render is invoked');
+            return (
+                <div className='row'>
+                    {this.renderItem(this.props.item)}
+                    {this.renderComment(this.props.items.comment)}
+                </div>
+            );
     }
 }
 

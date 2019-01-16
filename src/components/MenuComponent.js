@@ -23,30 +23,12 @@ class Menu extends Component {
     renderItem(item) {
         if (item != null) {
             return(
-                <div>
-                    <Card>
-                        <CardImg top src={item.image} alt={item.name} />
-                        <CardBody>
-                            <CardTitle>{item.name}</CardTitle>
-                            <CardText>{item.description}</CardText>  
-                        </CardBody>
-                    </Card>
-                                       **  POSITION COMMENT CARD SIDE BY SIDE  **
-                    <Card>
-                        <CardBody>
-                            <CardTitle>Comments</CardTitle> 
-                            <CardText>
-                                <div>
-                                    {this.props.items.map((comments) => {
-                                        return (
-                                        <li key={comments.id}>{item.comments.comment} - {item.comments.author}</li>  
-                                        );
-                                    })}
-                                </div>
-                            </CardText>
-                        </CardBody>
-                    </Card>
+            <div className="container col-12 col-mt-5">
+                <div className="row">
+                    {this.renderItem(item)}
+                    {this.renderComment(item)}
                 </div>
+            </div>
             );
         }
         else {
@@ -73,11 +55,11 @@ class Menu extends Component {
         console.log('Menu component render is invoked');
 
         return ( 
-            <div className="container">
-                <div className="row">
+            <div className='container'>
+                <div className='row'>
                     {menu}
                 </div>
-                <div className="row">
+                <div className='row'>
                     <div className="col-12 col-md-5 m-1">
                         {this.renderItem(this.state.selectedItem)}
                     </div>

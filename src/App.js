@@ -24,6 +24,7 @@ class App extends Component {
             </div>
         </Navbar>
         <Menu items={this.state.items} />
+        <ItemDetail items={this.state.items} />
       </div>
     );
   }
