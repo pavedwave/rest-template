@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 
 class Menu extends Component {
 
@@ -21,24 +21,26 @@ class Menu extends Component {
     }
 
     renderItem(item) {
+        console.log('Menu component renderItem is invoked');
         if (item != null) {
             return(
-            <div className="container col-12 col-mt-5">
+            <div className="container col-12 col-md-5">
                 <div className="row">
-                    {this.renderItem(item)}
-                    {this.renderComment(item)}
+                    {item}  
                 </div>
+                <itemDetail sendItem={this.state.selectedItem} />
             </div>
             );
         }
         else {
             return(
-                <div></div>
+                <div>testing -- undefined</div>
             );
         }
     }
 
     render() {
+        console.log('Menu component render is invoked');
         const menu = this.props.items.map((item) => {
             return (
                 <div className="col-12 col-md-5 m-1 xs=1 sm=1">
@@ -52,7 +54,6 @@ class Menu extends Component {
                 </div>
             );
         });
-        console.log('Menu component render is invoked');
 
         return ( 
             <div className='container'>

@@ -24,14 +24,16 @@ class ItemDetail extends Component {
         console.log('Itemdetail renderItem is invoked');
         if (item != null) {
             return (
-                <div>
-                    <Card>
-                        <CardImg top src={item.image} alt={item.name} />
-                        <CardBody>
-                            <CardTitle>{item.name}</CardTitle>
-                            <CardText>{item.description}</CardText>  
-                        </CardBody>
-                    </Card>
+                <div className="col-12 col-md-5 m-1 xs=1 sm=1">
+                    <div className = "row">
+                        <Card>
+                            <CardImg top src={item.image} alt={item.name} />
+                            <CardBody>
+                                <CardTitle>{item.name}</CardTitle>
+                                <CardText>{item.description}</CardText>  
+                            </CardBody>
+                        </Card>
+                    </div>
                 </div>
             )
         }
@@ -52,7 +54,7 @@ class ItemDetail extends Component {
                             <CardTitle>Comments</CardTitle>
                             <CardText>
                                 <ul>
-                                    {this.props.items.map((comments) => {  
+                                    {this.props.sendItem.map((comments) => {  
                                         return (                  
                                         <li key={comments.id}><p>{item.comments.comment}</p>--{item.comments.author}
                                             {item.comments.date}</li> 
@@ -76,8 +78,8 @@ class ItemDetail extends Component {
         console.log('Itemdetail component render is invoked');
             return (
                 <div className='row'>
-                    {this.renderItem(this.props.item)}
-                    {this.renderComment(this.props.items.comment)}
+                     {this.renderItem(sendItem)}
+                     {this.renderComment(sendItem)}
                 </div>
             );
     }
