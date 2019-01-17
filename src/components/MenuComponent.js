@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ItemDetail } from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 
 class Menu extends Component {
@@ -26,9 +26,8 @@ class Menu extends Component {
             return(
             <div className="container col-12 col-md-5">
                 <div className="row">
-                    {item}  
+                    {ItemDetail}  
                 </div>
-                <itemDetail sendItem={this.state.selectedItem} />
             </div>
             );
         }
@@ -51,6 +50,8 @@ class Menu extends Component {
                             <CardTitle>{item.name}</CardTitle>
                         </CardImgOverlay>
                     </Card>
+
+                    <ItemDetail shareditem={this.state.selectedItem} />
                 </div>
             );
         });

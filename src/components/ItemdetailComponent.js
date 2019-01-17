@@ -23,6 +23,7 @@ class ItemDetail extends Component {
     renderItem(item) {
         console.log('Itemdetail renderItem is invoked');
         if (item != null) {
+            this.item.map((item) => {
             return (
                 <div className="col-12 col-md-5 m-1 xs=1 sm=1">
                     <div className = "row">
@@ -35,9 +36,8 @@ class ItemDetail extends Component {
                         </Card>
                     </div>
                 </div>
-            )
-        }
-        else {
+            )})
+        } else {
             return(
                 <div></div>
             );
@@ -51,10 +51,10 @@ class ItemDetail extends Component {
                 <div className="col-12 col-mt-5">
                     <Card>
                         <CardBody>
-                            <CardTitle>Comments</CardTitle>
+                            <CardTitle>Comments</CardTitle>   
                             <CardText>
                                 <ul>
-                                    {this.props.sendItem.map((comments) => {  
+                                    {item.map((comments) => {  
                                         return (                  
                                         <li key={comments.id}><p>{item.comments.comment}</p>--{item.comments.author}
                                             {item.comments.date}</li> 
@@ -78,8 +78,8 @@ class ItemDetail extends Component {
         console.log('Itemdetail component render is invoked');
             return (
                 <div className='row'>
-                     {this.renderItem(sendItem)}
-                     {this.renderComment(sendItem)}
+                     {this.renderItem(this.props.shareditem)}
+                     {this.renderComment(this.props.shareditem)}
                 </div>
             );
     }
