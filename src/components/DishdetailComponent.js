@@ -1,37 +1,37 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';   
 
-class ItemDetail extends Component {
+class DishDetail extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            selectedItem: null
+            selectedDish: null
         }
-        console.log('ItemDetail component constructor is invoked');
+        console.log('DishDetail component constructor is invoked');
     }
 
     componentDidMount() {
-        console.log('ItemDetail component componentDidMount is invoked');
+        console.log('DishDetail component componentDidMount is invoked');
     }
 
-    onItemSelect(item) {
-        this.setState({ selectedItem: item });
+    onDishSelect(dish) {
+        this.setState({ selectedDish: dish });
     }
 
-    renderItem(item) {
-        console.log('Itemdetail renderItem is invoked');
-        if (item != null) {
-            this.item.map((item) => {
+    renderDish(dish) {
+        console.log('Dishdetail renderDish is invoked');
+        if (dish != null) {
+            this.dish.map((dish) => {
             return (
                 <div className="col-12 col-md-5 m-1 xs=1 sm=1">
                     <div className = "row">
                         <Card>
-                            <CardImg top src={item.image} alt={item.name} />
+                            <CardImg top src={dish.image} alt={dish.name} />
                             <CardBody>
-                                <CardTitle>{item.name}</CardTitle>
-                                <CardText>{item.description}</CardText>  
+                                <CardTitle>{dish.name}</CardTitle>
+                                <CardText>{dish.description}</CardText>  
                             </CardBody>
                         </Card>
                     </div>
@@ -44,9 +44,9 @@ class ItemDetail extends Component {
         }
     }
 
-    renderComment(item) {
-        console.log('Itemdetail renderComment is invoked');
-        if (item != null) {
+    renderComment(dish) {
+        console.log('Dishdetail renderComment is invoked');
+        if (dish != null) {
             return (
                 <div className="col-12 col-mt-5">
                     <Card>
@@ -54,10 +54,10 @@ class ItemDetail extends Component {
                             <CardTitle>Comments</CardTitle>   
                             <CardText>
                                 <ul>
-                                    {item.map((comments) => {  
+                                    {dish.map((comments) => {  
                                         return (                  
-                                        <li key={comments.id}><p>{item.comments.comment}</p>--{item.comments.author}
-                                            {item.comments.date}</li> 
+                                        <li key={comments.id}><p>{dish.comments.comment}</p>--{dish.comments.author}
+                                            {dish.comments.date}</li> 
                                         );
                                     })};
                                 </ul>
@@ -75,14 +75,14 @@ class ItemDetail extends Component {
     }
 
     render() {
-        console.log('Itemdetail component render is invoked');
+        console.log('Dishdetail component render is invoked');
             return (
                 <div className='row'>
-                     {this.renderItem(this.props.shareditem)}
-                     {this.renderComment(this.props.shareditem)}
+                     {this.renderDish(this.props.shareddish)}
+                     {this.renderComment(this.props.shareddish)}
                 </div>
             );
     }
 }
 
-export default ItemDetail;
+export default DishDetail;

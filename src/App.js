@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Menu from './components/MenuComponent';
-import ItemDetail from './components/ItemdetailComponent';
+import DishDetail from './components/DishdetailComponent';
 import './App.css';
-import { ITEMS } from './shared/items';
+import { DISHES } from './shared/dishes';
 
 class App extends Component {
 
@@ -11,7 +11,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      items: ITEMS
+      dishes: DISHES
     };
   }
 
@@ -23,8 +23,8 @@ class App extends Component {
                 <NavbarBrand href="/">Double J Saloon</NavbarBrand>
             </div>
         </Navbar>
-        <Menu items={this.state.items} />
-        <ItemDetail items={this.state.items} />
+        <Menu dishes={this.state.dishes} />
+        <DishDetail dishes={this.state.dishes} />
       </div>
     );
   }

@@ -1,4 +1,4 @@
-import React, { Component, ItemDetail } from 'react';
+import React, { Component, DishDetail } from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 
 class Menu extends Component {
@@ -7,7 +7,7 @@ class Menu extends Component {
         super(props);
 
         this.state = {
-            selectedItem: null
+            selectedDish: null
         }
         console.log('Menu component constructor is invoked');
     }
@@ -16,17 +16,18 @@ class Menu extends Component {
         console.log('Menu component componentDidMount is invoked');
     }
 
-    onItemSelect(item) {
-        this.setState({ selectedItem: item });
+    onDishSelect(dish) {
+        this.setState({ selectedDish: dish });
     }
 
-    renderItem(item) {
-        console.log('Menu component renderItem is invoked');
-        if (item != null) {
+    renderDish(dish) {
+        console.log('Menu component renderDish is invoked');
+        console.log(this.state.selectedDish);
+        if (dish != null) {
             return(
             <div className="container col-12 col-md-5">
                 <div className="row">
-                    {ItemDetail}  
+                    {dish}  
                 </div>
             </div>
             );
@@ -40,18 +41,19 @@ class Menu extends Component {
 
     render() {
         console.log('Menu component render is invoked');
-        const menu = this.props.items.map((item) => {
+
+        const menu = this.state.dish.map((dish) => {
             return (
                 <div className="col-12 col-md-5 m-1 xs=1 sm=1">
-                    <Card key = {item.id} 
-                    onClick={() => this.onItemSelect(item)}>
-                        <CardImg width="100%" src={item.image} alt={item.name} />
+                    <Card key = {dish.id} 
+                    onClick={() => this.onDishSelect(dish)}>
+                        <CardImg width="100%" src={dish.image} alt={dish.name} />
                         <CardImgOverlay>
-                            <CardTitle>{item.name}</CardTitle>
+                            <CardTitle>{dish.name}</CardTitle>
                         </CardImgOverlay>
                     </Card>
 
-                    <ItemDetail shareditem={this.state.selectedItem} />
+                    <DishDetail shareddish={this.state.selectedDish} />
                 </div>
             );
         });
@@ -63,7 +65,7 @@ class Menu extends Component {
                 </div>
                 <div className='row'>
                     <div className="col-12 col-md-5 m-1">
-                        {this.renderItem(this.state.selectedItem)}
+                        {this.renderDish(this.state.selectedDish)}
                     </div>
                 </div>
             </div>
