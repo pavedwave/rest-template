@@ -5,7 +5,7 @@ export default class ItemDetail extends Component {
     renderComments(comments) {
         if (comments != null) {
             const commentItems = comments.map((comment) => {
-                const commentDate = new Date(Date.parse(comment.date)).toLocaleString();
+                const commentDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)));
                 return (
                         <li key={comment.id} className='comment-list-item'>
                             <div className='mb-2'>{comment.comment}</div>
@@ -14,7 +14,7 @@ export default class ItemDetail extends Component {
                 );
             });
             return (
-                <div className="col-12 col-md-5 m-1 xs=1 sm=1">
+                <div className="col-12 col-md-5 m-1">
                     <h4>Comments</h4>
                     <ul>
                         {commentItems}
@@ -28,7 +28,7 @@ export default class ItemDetail extends Component {
 
     renderItem(item) {
         return (
-            <div className="col-12 col-md-5 m-1 xs=1 sm=1">
+            <div className="col-12 col-md-5 m-1">
                 <Card>
                     <CardImg width='100%' src={item.image} alt={item.name} />
                     <CardTitle>{item.name}</CardTitle>
