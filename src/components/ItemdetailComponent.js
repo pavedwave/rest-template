@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
 import {Card, CardTitle, CardText, CardImg} from 'reactstrap';
 
-export default class ItemDetail extends Component {
+class ItemDetail extends Component {
+
+    componentDidMount() {
+        console.log('ItemDetail ComponentDidMount invoked.');
+    }
+
+    componentDidUpdate() {
+        console.log('ItemDetail ComponentDidUpdate invoked.');
+    }
+
     renderComments(comments) {
+
+        console.log('ItemDetail renderComments invoked.');
+
         if (comments != null) {
             const commentItems = comments.map((comment) => {
                 const commentDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)));
@@ -53,3 +65,4 @@ export default class ItemDetail extends Component {
     }
 }
 
+export default ItemDetail;
