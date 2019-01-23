@@ -1,25 +1,23 @@
-import React, { Component } from 'react';
-import {Card, CardTitle, CardText, CardImg} from 'reactstrap';
-
-class ItemDetail extends Component {
+import React from 'react';
+import { Card, CardTitle, CardText, CardImg } from 'reactstrap';
 
     componentDidMount() {
-        console.log('ItemDetail ComponentDidMount invoked.');
+        console.log('DishDetail ComponentDidMount invoked.');
     }
 
     componentDidUpdate() {
-        console.log('ItemDetail ComponentDidUpdate invoked.');
+        console.log('DishDetail ComponentDidUpdate invoked.');
     }
 
-    renderComments(comments) {
+    function RenderComments({comments}) {
 
-        console.log('ItemDetail renderComments invoked.');
+        console.log('DishDetail renderComments invoked.');
 
         if (comments != null) {
-            const commentItems = comments.map((comment) => {
+            const commentDishes = comments.map((comment) => {
                 const commentDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)));
                 return (
-                        <li key={comment.id} className='comment-list-item'>
+                        <li key={comment.id} className='comment-list-dish'>
                             <div className='mb-2'>{comment.comment}</div>
                             <div className='mb-2'>--{comment.author} {commentDate}</div>
                         </li>
@@ -29,7 +27,7 @@ class ItemDetail extends Component {
                 <div className="col-12 col-md-5 m-1">
                     <h4>Comments</h4>
                     <ul>
-                        {commentItems}
+                        {commentDishes}
                     </ul>
                 </div>
             );
@@ -38,25 +36,25 @@ class ItemDetail extends Component {
         }
     }
 
-    renderItem(item) {
+    function RenderDish({dish}) {
         return (
             <div className="col-12 col-md-5 m-1">
                 <Card>
-                    <CardImg width='100%' src={item.image} alt={item.name} />
-                    <CardTitle>{item.name}</CardTitle>
-                    <CardText>{item.description}</CardText>
+                    <CardImg width='100%' src={dish.image} alt={dish.name} />
+                    <CardTitle>{dish.name}</CardTitle>
+                    <CardText>{dish.description}</CardText>
                 </Card>
             </div>
         );
     }
 
-    render() {
-        const { item } = this.props;
-        if (item != null) {
+    const DishDetail = (props) => {
+        const { dish } = props;
+        if (dish != null) {
             return (
                 <div className='row'>
-                    {this.renderItem(item)}
-                    {this.renderComments(item.comments)}
+                    <RenderDish dish={props.dish} /> 
+                    <RenderComments comments={props.dish.comments} />
                 </div>
             );
         } else {
@@ -64,5 +62,4 @@ class ItemDetail extends Component {
         }
     }
 }
-
-export default ItemDetail;
+export default DishDetail;
