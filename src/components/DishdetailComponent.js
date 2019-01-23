@@ -7,14 +7,14 @@ export default class DishDetail extends Component {
             const commentItems = comments.map((comment) => {
                 const commentDate = new Date(Date.parse(comment.date)).toLocaleString();
                 return (
-                    <li key={comment.id} className='comment-list-item'>
-                        <div className='mb-2'>{comment.comment}</div>
-                        <div className='mb-2'>--{comment.author} {commentDate}</div>
-                    </li>
+                        <li key={comment.id} className='comment-list-item'>
+                            <div className='mb-2'>{comment.comment}</div>
+                            <div className='mb-2'>--{comment.author} {commentDate}</div>
+                        </li>
                 );
             });
             return (
-                <div className='col-12 col-md-5 m-1'>
+                <div className="col-12 col-md-5 m-1 xs=1 sm=1">
                     <h4>Comments</h4>
                     <ul>
                         {commentItems}
@@ -28,7 +28,7 @@ export default class DishDetail extends Component {
 
     renderDish(dish) {
         return (
-            <div className='col-12 col-md-5 m-1'>
+            <div className="col-12 col-md-5 m-1 xs=1 sm=1">
                 <Card>
                     <CardImg width='100%' src={dish.image} alt={dish.name} />
                     <CardTitle>{dish.name}</CardTitle>
@@ -52,5 +52,4 @@ export default class DishDetail extends Component {
         }
     }
 }
-export default DishDetail;
 
