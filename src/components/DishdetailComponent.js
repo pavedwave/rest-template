@@ -3,10 +3,10 @@ import { Card, CardTitle, CardText, CardImg } from 'reactstrap';
 
 function RenderComments({comments}) {
 
-    console.log('ItemDetail renderComments invoked.');
+    console.log('DishDetail renderComments invoked.');
 
     if (comments != null) {
-        const commentItemes = comments.map((comment) => {
+        const commentDishes = comments.map((comment) => {
             const commentDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))
             return (
                 <li key={comment.id} className='comment-list-item'>
@@ -19,7 +19,7 @@ function RenderComments({comments}) {
             <div className="col-12 col-md-5 m-1">
                 <h4>Comments</h4>
                 <ul>
-                    {commentItemes}
+                    {commentDishes}
                 </ul>
             </div>
         );
@@ -28,25 +28,25 @@ function RenderComments({comments}) {
     }
 }
 
-function RenderItem({item}) {
+function RenderDish({dish}) {
     return (
         <div className="col-12 col-md-5 m-1">
             <Card>
-                <CardImg width='100%' src={item.image} alt={item.name} />
-                <CardTitle>{item.name}</CardTitle>
-                <CardText>{item.description}</CardText>
+                <CardImg width='100%' src={dish.image} alt={dish.name} />
+                <CardTitle>{dish.name}</CardTitle>
+                <CardText>{dish.description}</CardText>
             </Card>
         </div>
     );
 }
 
-const ItemDetail = (props) => {
-    const { item } = props;
-    if (item != null) {
+const DishDetail = (props) => {
+    const { dish } = props;
+    if (dish != null) {
         return (
             <div className='row'>
-                <RenderItem item={props.item} /> 
-                <RenderComments comments={props.item.comments} />
+                <RenderDish dish={props.dish} /> 
+                <RenderComments comments={props.dish.comments} />
             </div>
         );
     } else {
@@ -54,4 +54,4 @@ const ItemDetail = (props) => {
     }
 }
 
-export default ItemDetail;
+export default DishDetail;

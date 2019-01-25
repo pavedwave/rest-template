@@ -7,10 +7,11 @@ class Header extends Component {
     constructor(props) {
         super(props);
 
+        this.toggleNav = this.toggleNav.bind(this);
         this.state= {
             isNavOpen: false
         };
-        this.toggleNav = this.toggleNav.bind(this);
+        
     }
     
     toggleNav() {
@@ -27,7 +28,7 @@ class Header extends Component {
                         <NavbarToggler onClick={this.toggleNav} />
                         <NavbarBrand className="mr-auto" href="/"><img src="assets/images/logo.png" height="123" width="253" alt="Double J Saloon logo." />
                         </NavbarBrand>
-                        <Collapse isOpen={this.state.isOpen} navbar>
+                        <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/home">
