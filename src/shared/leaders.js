@@ -5,7 +5,7 @@ export const LEADERS = [
       image: '/assets/images/owner.png',
       designation: 'Bar Owner',
       abbr: 'CEO',
-      featured: false,
+      featured: true,
       description: 'Placeholder bio... Owner'
     },
     {
@@ -32,7 +32,7 @@ export const LEADERS = [
       image: '/assets/images/owner.png',
       designation: 'Band Leader',
       abbr: 'EC',
-      featured: true,
+      featured: false,
       description: 'Placeholder bio... Band Leader'
     }
   ];

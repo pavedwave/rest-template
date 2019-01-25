@@ -26,11 +26,13 @@
     margin:0px auto;
     background: rgb(72, 57, 99) ;
     color:floralwhite;
-    /* @font-face  */
-        font-family: 'BlackHawk';
-        font-style: normal;
-        src: local('BlackHawk'), local('BlackHawk'),
-            url('/fonts/BlackHawk.otf') format('otf')
+}
+
+@font-face {
+    font-family: 'BlackHawk';
+    font-style: normal;
+    src: local('BlackHawk'), local('BlackHawk'),
+        url('/fonts/BlackHawk.otf') format('otf')
 }
 
 address{

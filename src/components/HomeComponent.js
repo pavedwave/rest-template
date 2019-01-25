@@ -3,8 +3,6 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle } from 'reactstrap';
 
 function RenderCard({item}) {
-    console.log("hello");
-    console.log(item);
 
     return(
         <Card>
