@@ -48,10 +48,10 @@ class Main extends Component {
       <div>
         <Header />
         <Switch>
-          <Route path="/home" component={HomePage} />
-          <Route path="/aboutus" render={About} />
+          <Route path="/home" render={HomePage} />
+          <Route path="/aboutus" render={() => <About leaders={this.state.leaders} />} />
           <Route exact path="/menu" render={() => <Menu dishes={this.state.dishes} />} />
-          <Route path="/menu/:dishId" component={DishWithId} />
+          <Route path="/menu/:dishId" render={DishWithId} />
           <Route exact path="/contactus" render={Contact} />
           <Redirect to="/home" />
           </Switch>
