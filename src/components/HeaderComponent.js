@@ -20,13 +20,13 @@ class Header extends Component {
         });
     }
 
-    render() {
+    render() {    //  NavbarBrand className="mr-auto" ==>  "mr-5"
         return(
             <React.Fragment>
                 <Navbar dark expand="md">
-                    <div className="container">
+                    <div className="container">  
                         <NavbarToggler onClick={this.toggleNav} />
-                        <NavbarBrand className="mr-auto" href="/"><img src="/assets/images/logo.png" height="123" width="253" alt="Double J Saloon logo." />
+                        <NavbarBrand className="mr-5" href="/"><img src="/assets/images/logo.png" height="123" width="253" alt="Double J Saloon logo." />
                         </NavbarBrand>
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>

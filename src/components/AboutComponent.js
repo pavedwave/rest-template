@@ -10,7 +10,7 @@ function RenderLeader({leader}) {
       }
 
     return (
-        <div key={leader.id} className="col-12 col-mt-5">
+        <div className="col-12 col-mt-5">
             <Media tag="li">
                 <Media left middle>
                     <Media object src={leader.image} style={imgStyle} alt={leader.name}></Media>
@@ -29,7 +29,7 @@ function About(props) {
 
      const leaders = props.leaders.map((leader) => {
         return (
-            <RenderLeader leader={leader} />
+            <RenderLeader key={leader.id} leader={leader} />
         );
     }); 
 
