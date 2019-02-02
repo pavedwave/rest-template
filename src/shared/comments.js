@@ -19,10 +19,10 @@ export const COMMENTS =
     {
     id: 2,
     dishId: 0,
-    rating: 4,
-    comment: "Carnivores unite!",
-    author: "Michael J.",
-    date: "2015-02-13T17:57:28.556094Z"
+    rating: 5,
+    comment: "First time here and I’m extra happy! The food is homemade magic!!! It’s a great little place with free pool, friendly staff and patrons. And tonight great live music by The Short Cutz! I will be back many times!",
+    author: "Faith Jade",
+    date: "2019-01-23T17:57:28.556094Z"
     },
     {
     id: 3,

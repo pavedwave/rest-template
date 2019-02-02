@@ -28,6 +28,13 @@
     color:floralwhite;
 }
 
+h1 {
+    font-family: 'BlackHawk';
+    font-style: normal;
+    src: local('BlackHawk'), local('BlackHawk'),
+        url('/fonts/BlackHawk.otf') format('otf');
+}
+
 @font-face {
     font-family: 'BlackHawk';
     font-style: normal;

@@ -52,7 +52,7 @@ class Main extends Component {
           <Route path="/aboutus" render={() => <About leaders={this.state.leaders} />} />
           <Route exact path="/menu" render={() => <Menu dishes={this.state.dishes} />} />
           <Route path="/menu/:dishId" render={DishWithId} />
-          <Route exact path="/contactus" render={Contact} />
+          <Route exact path="/contactus" component={Contact} />
           <Redirect to="/home" />
           </Switch>
         <Footer />
