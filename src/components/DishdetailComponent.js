@@ -1,8 +1,12 @@
 import React from 'react';
-import { Card, CardTitle, CardText, CardImg, Breadcrumb, BreadcrumbItem, Nav, NavItem, Button, 
-    Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Col, Navbar, NavbarToggler, Collapse } from 'reactstrap';
+import { Card, CardTitle, CardText, CardImg, Breadcrumb, BreadcrumbItem, Button, 
+    Modal, ModalHeader, ModalBody, Label, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
+
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !(val) || (val.length <= len);
+const minLength = (len) => (val) => (val) && (val.length >= len);
 
 function RenderComments({comments}) {
 
@@ -10,7 +14,7 @@ function RenderComments({comments}) {
         const commentDishes = comments.map((comment) => {
             const commentDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))
             return (
-                <li key={comment.id} className='comment-list-item'>
+                <li key={comment.id} >
                     <div className='mb-2'>{comment.comment}</div>
                     <div className='mb-2'>--{comment.author} {commentDate}</div>
                 </li>
@@ -19,7 +23,7 @@ function RenderComments({comments}) {
         return (
             <div className="col-12 col-md-5 m-1">
                 <h4>Comments</h4>
-                <ul>
+                <ul className="list-unstyled">
                     {commentDishes}
                 </ul>
                 <CommentForm />
@@ -29,8 +33,6 @@ function RenderComments({comments}) {
         return <div></div>;
     }
 }
-
-// https://fontawesome.com/v4.7.0/examples/
 
 class CommentForm extends React.Component {
 
@@ -58,69 +60,91 @@ class CommentForm extends React.Component {
         });
     }
 
-    createComment(event) {
-        this.toggleModal();
-        alert("Rating: " + this.rating.value + "Yourname: " + this.yourname.value + " Comment: " + this.comment.value);
-        event.preventDefault();
+    createComment(values) {
+        console.log("Current state is: " + JSON.stringify(values));
+        alert("Current state is: " + JSON.stringify(values));
     }
 
     render() {  
         return(
             <React.Fragment>
-
-                <Navbar dark expand="md">
-                    <div className="container">
-                    <NavbarToggler onClick={this.toggleNav} />
-                        <Collapse isOpen={this.state.isNavOpen} navbar>
-                            <Nav navbar>
-                                <Nav className="ml-auto" navbar>
-                                    <NavItem>
-                                        <Button onClick={this.toggleModal}>
-                                            <span className="fa fa-pencil fa-lg"></span> Submit Comment
-                                        </Button>
-                                    </NavItem>
-                                </Nav>
-                            </Nav>
-                        </Collapse>
-                    </div>
-                </Navbar>
-
+                <Button onClick={this.toggleModal}>
+                    <span className="fa fa-pencil fa-lg"></span> Submit Comment
+                </Button>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Submit Comment Form</ModalHeader>
                     <ModalBody>
+                        <LocalForm onSubmit={(values) => this.createComment(values)}>
 
-                        <Form onSubmit={this.createComment}>   {/* <== is that benign comment? */}
+                            <Row className="form-group">
+                                <Col md={12}>
+                                <Label for="ratings">Rating</Label>
+                                    <Control.select model=".ratings" defaultValue="5" id="ratings" name="ratings" 
+                                        placeholder="Ratings"
+                                        className="form-control"
+                                        validators={{
+                                            required
+                                        }}
+                                        >
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        </Control.select>
+                                    <Errors
+                                        className="text-danger"
+                                        model=".ratings"
+                                        show="touched"
+                                        messages={{
+                                            required: 'Required- ',
+                                            validEmail: 'Invalid Rating'
+                                        }}
+                                    />
+                                </Col>
+                            </Row>
+                            
+                            <Row className="form-group">
+                                <Col md={12}>
+                                <Label for="yourname">Your Name</Label>
+                                    <Control.text model=".yourname" id="yourname" name="yourname" 
+                                        placeholder="Your Name"
+                                        className="form-control"
+                                        validators={{
+                                            required, minLength: minLength(3), maxLength: maxLength(15)
+                                        }}
+                                    />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".yourname"
+                                        show="touched"
+                                        messages={{
+                                            required: 'Required- ',
+                                            minLength: 'Must be greater than 2 characters',
+                                            maxLength: 'Must be 15 characters or less'
+                                        }}
+                                    />
+                                </Col>
+                            </Row>
 
-                        {/* <LocalForm onSubmit={(values) => this.createComment(values)}> */}
-{/*                             <FormGroup>
-                                <Label htmlFor="rating">Rating</Label>
-                                <FormControl as="select">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                <Input type="rating" id="rating" name="rating" 
-                                    innerRef={(input) => this.rating = input} />
-                                </FormControl>
-                            </FormGroup> */}
-
-                            <FormGroup>
-                                <Label htmlFor="yourname">Your Name</Label>
-                                <Input type="text" id="yourname" name="yourname" 
-                                    innerRef={(input) => this.yourname = input} />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="message" md={2}>Comment</Label>
-                                <Col md={10}>
-                                    <Control.textarea model=".message" id="message" name="message" 
+                            <Row className="form-group">
+                                <Col md={12}>
+                                <Label for="feedback">Submit Feedback</Label>
+                                    <Control.textarea model=".feedback" id="feedback" name="feedback" 
                                         rows="6"
                                         className="form-control" />
                                 </Col>
-                            </FormGroup>
-                            <Button type="submit" value="submit" color="bg-dark">Submit</Button>
-                         </Form>
-                        {/* </LocalForm> */}
+                            </Row>
+                            <Row className="form-group">
+                                <Col md={{size: 12}}>
+                                    <Button type="submit" color="dark">
+                                    Submit Feedback
+                                    </Button>
+                                </Col> 
+                            </Row>
+
+                        </LocalForm>
+
                     </ModalBody>
                 </Modal>
             </React.Fragment>
