@@ -6,6 +6,12 @@ import Home from "./components/HomeComponent";
 import Footer from "./components/FooterComponent";
 import About from "./components/AboutComponent";
 
+// https://facebook.github.io/create-react-app/docs/running-tests#initializing-test-environment
+
+// 1. npm install --save enzyme enzyme-adapter-react-16 react-test-renderer
+// 2. create src/setupTests.js file
+
+
 // #001 Test only renders App  (shallow rendering)
 it('renders without crashing', () => {
   shallow(<App />);
@@ -19,7 +25,6 @@ it('renders without crashing', () => {
 });
 
 // #003 Test title
-// https://facebook.github.io/create-react-app/docs/running-tests#initializing-test-environment
 
 it('renders expected message', () => {
   const wrapper = shallow(<App />);
@@ -27,8 +32,6 @@ it('renders expected message', () => {
   // expect(wrapper.contains(welcome)).toBe(true);
   expect(wrapper.contains(welcome)).toEqual(true);
   
-  // Try using Jest-enzyme
-  // expect(wrapper).toContainReact(welcome);
 });
 
 
