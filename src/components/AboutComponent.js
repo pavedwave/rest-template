@@ -49,7 +49,7 @@ function About(props) {
             <div className="row row-content">
                 <div className="col-12 col-md-6">
                     <h2>Our History</h2>
-                    <p>Brief history of the Double J Saloon - interview with Jeff Flood - placeholder for now.</p>
+                    <p>Boilerplate until we get a history of Double J Saloon from the owner...</p>
                 </div>
                 <div className="col-12 col-md-5">
                     <Card>
