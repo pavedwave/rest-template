@@ -1,6 +1,8 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../shared/baseUrl';
+import { Fade, Stagger } from 'react-animation-components';
 
 function RenderLeader({leader}) {
 
@@ -13,11 +15,11 @@ function RenderLeader({leader}) {
         <div className="col-12 col-mt-5">
             <Media tag="li">
                 <Media left middle>
-                    <Media object src={leader.image} style={imgStyle} alt={leader.name}></Media>
+                    <Media object src={baseUrl + leader.image} style={imgStyle} alt={leader.name}></Media>
                 </Media>
                 <Media body className='ml-5'>
                 <Media heading>{leader.name}</Media>
-                <p>{leader.designation}</p> 
+                <p><strong>{leader.designation}</strong></p> 
                 <p>{leader.description}</p>
                 </Media>
             </Media>
@@ -27,15 +29,56 @@ function RenderLeader({leader}) {
 
 function About(props) {
 
-     const leaders = props.leaders.map((leader) => {
+    const leaders = props.leaders.leaders.map((leader) => {
         return (
-            <RenderLeader key={leader.id} leader={leader} />
+            <Fade in>
+                <RenderLeader key={leader.id} leader={leader} />
+            </Fade>
         );
     }); 
 
     return(
         <div className="container">
-         
+
+            <div class="snowflakes" aria-hidden="true">
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+                ❅
+            </div>
+            <div class="snowflake">
+                ❆
+            </div>
+            <div class="snowflake">
+                ❅
+            </div>
+            <div class="snowflake">
+                ❆
+            </div>
+            <div class="snowflake">
+                ❅
+            </div>
+            <div class="snowflake">
+                ❆
+            </div>
+            </div>
+
             <div className="row">
                 <Breadcrumb>
                     <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
@@ -46,6 +89,20 @@ function About(props) {
                     <hr />
                 </div>                
             </div>
+
+            <div className="row row-content">
+                <div className="col-12">
+                    <h2>The Double J Crew</h2>
+                </div>
+                <div className="col-12">
+                    <Media list>
+                        <Stagger in>
+                            {leaders}
+                        </Stagger>
+                    </Media>
+                </div>
+            </div>
+            
             <div className="row row-content">
                 <div className="col-12 col-md-6">
                     <h2>Our History</h2>
@@ -81,16 +138,6 @@ function About(props) {
                             </blockquote>
                         </CardBody>
                     </Card>
-                </div>
-            </div>
-            <div className="row row-content">
-                <div className="col-12">
-                    <h2>Corporate Leadership</h2>
-                </div>
-                <div className="col-12">
-                    <Media list>
-                        {leaders}
-                    </Media>
                 </div>
             </div>
         </div>
