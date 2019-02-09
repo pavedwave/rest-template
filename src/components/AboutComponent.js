@@ -40,41 +40,41 @@ function About(props) {
     return(
         <div className="container">
 
-            <div class="snowflakes" aria-hidden="true">
-            <div class="snowflake">
+            <div className="snowflakes" aria-hidden="true">
+            <div className="snowflake">
             ❅
             </div>
-            <div class="snowflake">
+            <div className="snowflake">
             ❆
             </div>
-            <div class="snowflake">
+            <div className="snowflake">
             ❅
             </div>
-            <div class="snowflake">
+            <div className="snowflake">
             ❆
             </div>
-            <div class="snowflake">
+            <div className="snowflake">
             ❅
             </div>
-            <div class="snowflake">
+            <div className="snowflake">
             ❆
             </div>
-            <div class="snowflake">
+            <div className="snowflake">
                 ❅
             </div>
-            <div class="snowflake">
+            <div className="snowflake">
                 ❆
             </div>
-            <div class="snowflake">
+            <div className="snowflake">
                 ❅
             </div>
-            <div class="snowflake">
+            <div className="snowflake">
                 ❆
             </div>
-            <div class="snowflake">
+            <div className="snowflake">
                 ❅
             </div>
-            <div class="snowflake">
+            <div className="snowflake">
                 ❆
             </div>
             </div>
@@ -102,7 +102,7 @@ function About(props) {
                     </Media>
                 </div>
             </div>
-            
+
             <div className="row row-content">
                 <div className="col-12 col-md-6">
                     <h2>Our History</h2>
