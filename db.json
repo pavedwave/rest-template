@@ -204,7 +204,7 @@
     },
     {
       "dishId": 3,
-      "comment": "HELLO",
+      "comment": "Just Trolling",
       "date": "2019-02-07T20:27:19.862Z",
       "id": 20
     },
@@ -218,7 +218,7 @@
   "leaders": [
     {
       "id": 0,
-      "name": "Jeff Flood",
+      "name": "Colin Sick",
       "image": "/assets/images/people1.png",
       "designation": "Bar Owner",
       "abbr": "CEO",
@@ -227,7 +227,7 @@
     },
     {
       "id": 1,
-      "name": "Woody Harrelson",
+      "name": "Chris P. Bacon",
       "image": "/assets/images/people2.png",
       "designation": "Bartender",
       "abbr": "CFO",
@@ -236,7 +236,7 @@
     },
     {
       "id": 2,
-      "name": "Pastor Azteca",
+      "name": "Lee Vatipp",
       "image": "/assets/images/people3.png",
       "designation": "Waiter Extraordinaire",
       "abbr": "CTO",
@@ -245,7 +245,7 @@
     },
     {
       "id": 3,
-      "name": "Doc Severinsen",
+      "name": "Casey Deeya",
       "image": "/assets/images/people4.png",
       "designation": "Band Leader",
       "abbr": "EC",
@@ -305,6 +305,46 @@
       "contactType": "Tel.",
       "feedback": "333333",
       "id": 4
+    },
+    {
+      "firstname": "James555",
+      "lastname": "Peters55",
+      "telnum": "508808065033",
+      "email": "pavedwave@gmail.com",
+      "agree": false,
+      "contactType": "Tel.",
+      "feedback": "fdfgdfdfdfgdfgdf",
+      "id": 5
+    },
+    {
+      "firstname": "James22",
+      "lastname": "Peters22",
+      "telnum": "50880806502",
+      "email": "pavedwave@gmail.com",
+      "agree": true,
+      "contactType": "Email",
+      "feedback": "2222222222",
+      "id": 6
+    },
+    {
+      "firstname": "James2",
+      "lastname": "Peters44",
+      "telnum": "50880806504",
+      "email": "pavedwave@gmail.com",
+      "agree": false,
+      "contactType": "Tel.",
+      "feedback": "44444",
+      "id": 7
+    },
+    {
+      "firstname": "James666",
+      "lastname": "Peters66",
+      "telnum": "508808065066",
+      "email": "pavedwave@gmail.com",
+      "agree": false,
+      "contactType": "Tel.",
+      "feedback": "666",
+      "id": 8
     }
   ]
 }

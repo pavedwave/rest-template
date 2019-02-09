@@ -106,7 +106,7 @@ function About(props) {
             <div className="row row-content">
                 <div className="col-12 col-md-6">
                     <h2>Our History</h2>
-                    <p>Boilerplate until we get a history of Double J Saloon from the owner...</p>
+                    <p>Human evolution is the process that led to the emergence of anatomically modern humans, beginning with the history of primates—in particular genus Homo—and leading to the emergence of Homo sapiens as a distinct species of the hominid family, the great apes. This process involved the gradual development of traits such as human bipedalism and language, as well as interbreeding with other hominins, which indicate that human evolution was not linear but a web.  The study of human evolution involves several scientific disciplines, including physical anthropology, primatology, archaeology, paleontology, neurobiology, ethology, linguistics, evolutionary psychology, embryology and genetics. Genetic studies show that primates diverged from other mammals about 85 million years ago, in the Late Cretaceous period, and the earliest fossils appear in the Paleocene, around 55 million years ago.</p>
                 </div>
                 <div className="col-12 col-md-5">
                     <Card>
@@ -114,11 +114,11 @@ function About(props) {
                         <CardBody>
                             <dl className="row p-1">
                                 <dt className="col-6">Started</dt>
-                                <dd className="col-6">3 Feb. 2013</dd>
+                                <dd className="col-6">December 2016</dd>
                                 <dt className="col-6">Major Stake Holder</dt>
                                 <dd className="col-6">Double J Saloon</dd>
                                 <dt className="col-6">Last Year's Turnover</dt>
-                                <dd className="col-6">$1,250,375</dd>
+                                <dd className="col-6">$1 Bazillion</dd>
                                 <dt className="col-6">Employees</dt>
                                 <dd className="col-6">4</dd>
                             </dl>
