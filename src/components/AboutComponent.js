@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
 import { Fade, Stagger } from 'react-animation-components';
 
-function RenderLeader({leader}) {
+function RenderEmployee({employee}) {
 
     const imgStyle = {
         maxHeight: 128,
@@ -15,12 +15,12 @@ function RenderLeader({leader}) {
         <div className="col-12 col-mt-5">
             <Media tag="li">
                 <Media left middle>
-                    <Media object src={baseUrl + leader.image} style={imgStyle} alt={leader.name}></Media>
+                    <Media object src={baseUrl + employee.image} style={imgStyle} alt={employee.name}></Media>
                 </Media>
                 <Media body className='ml-5'>
-                <Media heading>{leader.name}</Media>
-                <p><strong>{leader.designation}</strong></p> 
-                <p>{leader.description}</p>
+                <Media heading>{employee.name}</Media>
+                <p><strong>{employee.designation}</strong></p> 
+                <p>{employee.description}</p>
                 </Media>
             </Media>
         </div>
@@ -29,55 +29,16 @@ function RenderLeader({leader}) {
 
 function About(props) {
 
-    const leaders = props.leaders.leaders.map((leader) => {
+    const employees = props.employees.employees.map((employee) => {
         return (
             <Fade in>
-                <RenderLeader key={leader.id} leader={leader} />
+                <RenderEmployee key={employee.id} employee={employee} />
             </Fade>
         );
     }); 
 
     return(
         <div className="container">
-
-            <div className="snowflakes" aria-hidden="true">
-            <div className="snowflake">
-            ❅
-            </div>
-            <div className="snowflake">
-            ❆
-            </div>
-            <div className="snowflake">
-            ❅
-            </div>
-            <div className="snowflake">
-            ❆
-            </div>
-            <div className="snowflake">
-            ❅
-            </div>
-            <div className="snowflake">
-            ❆
-            </div>
-            <div className="snowflake">
-                ❅
-            </div>
-            <div className="snowflake">
-                ❆
-            </div>
-            <div className="snowflake">
-                ❅
-            </div>
-            <div className="snowflake">
-                ❆
-            </div>
-            <div className="snowflake">
-                ❅
-            </div>
-            <div className="snowflake">
-                ❆
-            </div>
-            </div>
 
             <div className="row">
                 <Breadcrumb>
@@ -97,7 +58,7 @@ function About(props) {
                 <div className="col-12">
                     <Media list>
                         <Stagger in>
-                            {leaders}
+                            {employees}
                         </Stagger>
                     </Media>
                 </div>

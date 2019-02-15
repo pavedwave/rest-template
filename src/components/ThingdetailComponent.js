@@ -11,10 +11,10 @@ const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => (val) && (val.length >= len);
 
-function RenderComments({comments, postComment, dishId}) {
+function RenderComments({comments, postComment, thingId}) {
 
     if (comments != null) {
-        const commentDishes = comments.map((comment) => {
+        const commentThings = comments.map((comment) => {
             const commentDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))
             return (
                 <li key={comment.id} >
@@ -28,10 +28,10 @@ function RenderComments({comments, postComment, dishId}) {
                 <h4>Comments</h4>
                 <ul className="list-unstyled">
                     <Stagger in>
-                        {commentDishes}
+                        {commentThings}
                     </Stagger>
                 </ul>
-                <CommentForm dishId={dishId} postComment={postComment} />
+                <CommentForm thingId={thingId} postComment={postComment} />
             </div>
         );
     } else {
@@ -67,7 +67,7 @@ class CommentForm extends React.Component {
 
     createComment(values) {
         this.toggleModal();
-        this.props.postComment(this.props.dishId, values.rating, values.author, values.feedback);
+        this.props.postComment(this.props.thingId, values.rating, values.author, values.feedback);
     }
 
     render() {  
@@ -157,7 +157,7 @@ class CommentForm extends React.Component {
     }
 }
 
-function RenderDish({dish}) {
+function RenderThing({thing}) {
 
     return (
         <div className="col-12 col-md-5 m-1">
@@ -167,16 +167,16 @@ function RenderDish({dish}) {
                     exitTransform: 'scale(0.5) translateY(-50%)'
                 }}>
                 <Card>
-                    <CardImg src={baseUrl + dish.image} alt={dish.name} />
-                    <CardTitle>{dish.name}</CardTitle>
-                    <CardText>{dish.description}</CardText>
+                    <CardImg src={baseUrl + thing.image} alt={thing.name} />
+                    <CardTitle>{thing.name}</CardTitle>
+                    <CardText>{thing.description}</CardText>
                 </Card>
             </FadeTransform>
         </div>
     );
 }
 
-const DishDetail = (props) => {
+const ThingDetail = (props) => {
     if (props.isLoading) {
         return(
             <div className="container">
@@ -195,25 +195,25 @@ const DishDetail = (props) => {
             </div>
         );
     }
-    const { dish } = props;
-    if (dish != null) {
+    const { thing } = props;
+    if (thing != null) {
         return (
             <div className="container">
             <div className ="row">
                 <Breadcrumb>
                     <BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+                    <BreadcrumbItem active>{props.thing.name}</BreadcrumbItem>
                 </Breadcrumb>
                 <div className="col-12">
-                    <h3>{props.dish.name}</h3>
+                    <h3>{props.thing.name}</h3>
                     <hr />
                 </div>
                 </div>
                 <div className='row'>
-                    <RenderDish dish={props.dish} /> 
+                    <RenderThing thing={props.thing} /> 
                     <RenderComments comments={props.comments}
                         postComment={props.postComment}
-                        dishId={props.dish.id} />
+                        thingId={props.thing.id} />
                 </div>
             </div>
         );
@@ -222,4 +222,4 @@ const DishDetail = (props) => {
     }
 }
 
-export default DishDetail;
+export default ThingDetail;

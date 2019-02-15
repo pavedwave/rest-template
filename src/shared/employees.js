@@ -1,4 +1,4 @@
-export const LEADERS = [
+export const EMPLOYEES = [
     {
       id: 0,
       name: 'Jeff Flood',

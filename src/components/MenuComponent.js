@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
-function RenderMenuItem({ dish, onClick }) {
+function RenderMenuItem({ thing, onClick }) {
     return(
         <Card>
-            <Link to={`/menu/${dish.id}`} >
-                <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
+            <Link to={`/menu/${thing.id}`} >
+                <CardImg width="100%" src={baseUrl + thing.image} alt={thing.name} />
                 <CardImgOverlay>
-                    <CardTitle>{dish.name}</CardTitle>
+                    <CardTitle>{thing.name}</CardTitle>
                 </CardImgOverlay>
             </Link>
         </Card>
@@ -19,15 +19,15 @@ function RenderMenuItem({ dish, onClick }) {
 
 const Menu = (props) => {
 
-    const menu = props.dishes.dishes.map((dish) => {
+    const menu = props.things.things.map((thing) => {
         return (
-            <div key={dish.id} className="col-12 col-md-5 m-1">
-                <RenderMenuItem dish={dish} />
+            <div key={thing.id} className="col-12 col-md-5 m-1">
+                <RenderMenuItem thing={thing} />
             </div>
         );
     });
 
-    if (props.dishes.isLoading) {
+    if (props.things.isLoading) {
         return(
             <div className="container">
                 <div className="row">
@@ -36,11 +36,11 @@ const Menu = (props) => {
             </div>
         );
     }
-    else if (props.dishes.errMess) {
+    else if (props.things.errMess) {
         return(
             <div className="container">
                 <div className="row">
-                    <h4>{props.dishes.errMess}</h4>
+                    <h4>{props.things.errMess}</h4>
                 </div>
             </div>
         );

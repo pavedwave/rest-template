@@ -1,12 +1,12 @@
 import * as ActionTypes from './ActionTypes';
 import { baseUrl } from '../shared/baseUrl';
 
-// DISHES
+// THINGS
 
-export const fetchDishes = () => (dispatch) => {
-    dispatch(dishesLoading(true));
+export const fetchThings = () => (dispatch) => {
+    dispatch(thingsLoading(true));
 
-    return fetch(baseUrl + 'dishes')
+    return fetch(baseUrl + 'things')
         .then(response => {
             if (response.ok) {
                 return response;
@@ -22,30 +22,30 @@ export const fetchDishes = () => (dispatch) => {
             throw errmess;
         })
         .then(response => response.json())
-        .then(dishes => dispatch(addDishes(dishes)))
-        .catch(error => dispatch(dishesFailed(error.message)));
+        .then(things => dispatch(addThings(things)))
+        .catch(error => dispatch(thingsFailed(error.message)));
 }
 
-export const dishesLoading = () => ({
-    type: ActionTypes.DISHES_LOADING
+export const thingsLoading = () => ({
+    type: ActionTypes.THINGS_LOADING
 });
 
-export const dishesFailed = (errmess) => ({
-    type: ActionTypes.DISHES_FAILED,
+export const thingsFailed = (errmess) => ({
+    type: ActionTypes.THINGS_FAILED,
     payload: errmess
 });
 
-export const addDishes = (dishes) => ({
-    type: ActionTypes.ADD_DISHES,
-    payload: dishes
+export const addThings = (things) => ({
+    type: ActionTypes.ADD_THINGS,
+    payload: things
 });
 
 // COMMENTS
 
-export const postComment = (dishId, rating, author, comment) => (dispatch) => {
+export const postComment = (thingId, rating, author, comment) => (dispatch) => {
 
     const newComment = {
-        dishId: dishId,
+        thingId: thingId,
         rating: rating,
         author: author,
         comment: comment
@@ -156,12 +156,12 @@ export const addPromos = (promos) => ({
     payload: promos
 });
 
-// LEADERS
+// EMPLOYEES
 
-export const fetchLeaders = () => (dispatch) => {
-    dispatch(leadersLoading(true));
+export const fetchEmployees = () => (dispatch) => {
+    dispatch(employeesLoading(true));
 
-    return fetch(baseUrl + 'leaders')
+    return fetch(baseUrl + 'employees')
         .then(response => {
             if (response.ok) {
                 return response;
@@ -177,22 +177,22 @@ export const fetchLeaders = () => (dispatch) => {
             throw errmess;
         })
         .then(response => response.json())
-        .then(leaders => dispatch(addLeaders(leaders)))
-        .catch(error => dispatch(leadersFailed(error.message)));
+        .then(employees => dispatch(addEmployees(employees)))
+        .catch(error => dispatch(employeesFailed(error.message)));
 }
 
-export const leadersLoading = () => ({
-    type: ActionTypes.LEADERS_LOADING
+export const employeesLoading = () => ({
+    type: ActionTypes.EMPLOYEES_LOADING
 });
 
-export const leadersFailed = (errmess) => ({
-    type: ActionTypes.LEADERS_FAILED,
+export const employeesFailed = (errmess) => ({
+    type: ActionTypes.EMPLOYEES_FAILED,
     payload: errmess
 });
 
-export const addLeaders = (leaders) => ({
-    type: ActionTypes.ADD_LEADERS,
-    payload: leaders
+export const addEmployees = (employees) => ({
+    type: ActionTypes.ADD_EMPLOYEES,
+    payload: employees
 });
 
 // FEEDBACK

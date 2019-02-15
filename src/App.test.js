@@ -52,9 +52,9 @@ describe("Home", () => {
 
   beforeEach(() => {
     props = {
-      dish: undefined,
+      thing: undefined,
       promotion: undefined,
-      leader: undefined,
+      employee: undefined,
     };
     mountedHome = undefined;
   });
@@ -85,9 +85,9 @@ describe("Footer", () => {
 
   beforeEach(() => {
     props = {
-      dish: undefined,
+      thing: undefined,
       promotion: undefined,
-      leader: undefined,
+      employee: undefined,
     };
     mountedFooter = undefined;
   });
@@ -118,9 +118,9 @@ describe("About", () => {
 
   beforeEach(() => {
     props = {
-      dish: undefined,
+      thing: undefined,
       promotion: undefined,
-      leader: undefined,
+      employee: undefined,
     };
     mountedAbout = undefined;
   });
