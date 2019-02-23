@@ -3,7 +3,7 @@ import * as ActionTypes from './ActionTypes';
 export const Employees = (state = {
         isLoading: true,
         errMess: null,
-        employee: []
+        employees: []
     }, action) => {
     switch(action.type) {
 

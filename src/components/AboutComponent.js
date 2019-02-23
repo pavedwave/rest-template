@@ -67,7 +67,7 @@ function About(props) {
             <div className="row row-content">
                 <div className="col-12 col-md-6">
                     <h2>Our History</h2>
-                    <p>Human evolution is the process that led to the emergence of anatomically modern humans, beginning with the history of primates—in particular genus Homo—and leading to the emergence of Homo sapiens as a distinct species of the hominid family, the great apes. This process involved the gradual development of traits such as human bipedalism and language, as well as interbreeding with other hominins, which indicate that human evolution was not linear but a web.  The study of human evolution involves several scientific disciplines, including physical anthropology, primatology, archaeology, paleontology, neurobiology, ethology, linguistics, evolutionary psychology, embryology and genetics. Genetic studies show that primates diverged from other mammals about 85 million years ago, in the Late Cretaceous period, and the earliest fossils appear in the Paleocene, around 55 million years ago.</p>
+                    <p>The Double J Saloon opened in 2016 and quickly became THE social and musical gathering place for Lake City!  Come on out and join in the fun.  Our open mic happens on the first and third Tuesdays with an 8:30pm start time. Live music by great local bands Wednesdays and weekends.  And a full cocktail bar and food menu that goes well beyond the standard pub fare, with top-notch BBQ offerings.</p>
                 </div>
                 <div className="col-12 col-md-5">
                     <Card>
